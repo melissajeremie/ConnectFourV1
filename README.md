@@ -8,9 +8,10 @@ A JavaScript app based on the classic color connection game [Connect Four](https
 * jQuery
 * HTML
 * CSS
+* Github
 
 ### Approach Taken
-
+After some initial research on the game, I began to map out the logic behind the app. 
 
 ### Link to Live Site
 ...
