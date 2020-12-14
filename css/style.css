@@ -1,7 +1,32 @@
 h1 {
-    color: blueviolet;
+    color: rgb(79, 21, 112);
+    text-align: center;
 }
 
-.container table {
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+.game-board table tr td {
+    border: 3px solid black;
+    cursor: pointer;
+    width: 9vw;
+    height: 11vh;
+    background-color: white;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.game-board {
+    border: 2px solid black;
+    padding: 10px;
+    background-color: cornflowerblue;
+}
+
+.game-status {
     border: 3px solid green;
+    height: 30vh;
+    width: 15vw;
+    text-align: center;
 }

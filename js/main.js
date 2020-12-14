@@ -11,5 +11,22 @@ while (!player2) {
 }
 let p2Color = "";
 
-// Game cell selectors
+// Game selectors
 const row = document.getElementsByTagName('tr');
+const col = document.getElementsByTagName('td');
+const playersTurn = document.querySelector('.players-turn');
+const cells = document.querySelectorAll('.cell');
+const resetGame = document.querySelector('.reset');
+
+let currentPlayer = 1;
+let winner;
+playersTurn.textContent = `${player1}, it's your turn`
+
+// store cell coordinates when clicked on
+
+for (let i = 0; i < col.length; i++) {
+    col[i].addEventListener('click', (e) => {
+        console.log(`${e.target}`)
+    });
+    
+}
