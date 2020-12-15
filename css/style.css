@@ -8,7 +8,8 @@ h1 {
     flex-direction: row-reverse;
     justify-content: space-around;
 }
-.game-board table tr td {
+
+#board {
     border: 3px solid black;
     cursor: pointer;
     width: 9vw;
@@ -18,11 +19,11 @@ h1 {
     margin: 2px;
 }
 
-#gameboard {
+#game {
     border: 2px solid black;
     padding: 10px;
     background-color: cornflowerblue;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .game-status {
