@@ -18,14 +18,15 @@ h1 {
     margin: 2px;
 }
 
-.game-board {
+#gameboard {
     border: 2px solid black;
     padding: 10px;
     background-color: cornflowerblue;
+    display: inline-block;
 }
 
 .game-status {
-    border: 3px solid green;
+    border: 3px solid blue;
     height: 30vh;
     width: 15vw;
     text-align: center;
