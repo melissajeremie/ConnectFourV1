@@ -1,24 +1,40 @@
-console.log("'tis I, the JS file");
+// console.log("'tis I, the JS file");
+
+const $board = $('#board');
+// const $gridRow = $('<tr></tr>').addClass('row');
+// const $gridCol = $('<td></td>').addClass('col');
 
 function buildBoard() {
-    const $board = document.getElementById('#board');
-    const $gridRow = $('<tr></tr>').addClass('row');
-    const $gridCol = $('<td></td>').addClass('col');
 
-    let rows = 6;
-    let columns = 7;
-    
-
-    for (let i = 0; i <= rows; i++) {
-        $gameTable.append($gridRow);
-
-        for (let j = 0; j <= columns; j++) {
-        $gridRow.append($gridCol);
-        }
+    for (let i = 1; i < 7; i++) {
+        $board.append('<tr class = row></tr>');
     }
+    for (let j = 1; j < 8; j++) {
+        $('.row').append('<td class = col></td>');
+        } 
 }
 
+buildBoard();
+// $(document).ready(function () {
+    
+// });
 
-$(document).ready(function () {
-    buildBoard();
-});
+function horizontalWin() {
+
+}
+
+function verticalWin() {
+
+}
+
+function diagonalWin() {
+
+}
+
+function diagonalWinTwo() {
+
+}
+
+function itsATie() {
+
+}

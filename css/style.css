@@ -7,28 +7,34 @@ h1 {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
+    width: 100%;
 }
 
-#board {
+#game {
+    border: 2px solid black;
+    /* width: 50%; */
+    padding: 10px;
+    background-color: cornflowerblue;
+    display: inline-block;
+}
+
+.board {
+    text-align: center;
+}
+.row .col {
     border: 3px solid black;
     cursor: pointer;
-    width: 9vw;
-    height: 11vh;
+    width: 50px;
+    height: 50px;
     background-color: white;
     border-radius: 50%;
     margin: 2px;
 }
 
-#game {
-    border: 2px solid black;
-    padding: 10px;
-    background-color: cornflowerblue;
-    /* display: inline-block; */
-}
 
 .game-status {
     border: 3px solid blue;
     height: 30vh;
-    width: 15vw;
+    width: 16%;
     text-align: center;
 }
