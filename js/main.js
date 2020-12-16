@@ -43,7 +43,6 @@ for (i = 0; i < $gridCol.length; i++) {
 // functions for gameplay
 
 function colorChange(e) {
-    e = click();
     let column = e.target.cellIndex;
     let row = [];
     for (let i = 5; i > -1; i--) {
@@ -121,7 +120,7 @@ function diagonalWin() {
 
 function diagonalWinTwo() {
     for (let col = 0; col < 4; col++){
-        for (let row = 5; row > 1; row--){
+        for (let row = 5; row > $gridRow.length-5; row--){
             if (colorCheck($gridRow[row].children[col].css('background-color'), $gridRow[row-1].children[col+1].css('background-color'), $gridRow[row-2].children[col+2].css('background-color'), $gridRow[row-3].children[col+3].css('background-color'))) {
                 return true;
             }
@@ -154,7 +153,7 @@ function clearBoard() {
 
 $( () => {
     buildBoard();
-    colorChange(click());
+    
 });
     
     colorCheck();
