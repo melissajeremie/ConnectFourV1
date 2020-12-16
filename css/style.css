@@ -14,6 +14,28 @@ h1 {
     width: 100%;
 }
 
+.status-container {
+    /* border: 3px dashed orange; */
+    width: 25%;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-status {
+    border: 2px solid deeppink;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.score-keeper {
+    border: 2px solid deeppink;
+    text-align: center;
+    margin-top: 5px;
+}
+
 #game {
     border: 2px solid black;
     /* width: 50%; */
@@ -36,12 +58,4 @@ h1 {
 }
 
 
-.status-container {
-    border: 3px dashed orange;
-    height: 30vh;
-    width: 16%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
+
