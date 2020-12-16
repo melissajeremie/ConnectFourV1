@@ -37,14 +37,14 @@ const $slots = $('.col')
 // return slot coordinates when clicked
 for (i = 0; i < $gridCol.length; i++) {
     $gridCol[i].addEventListener('click', (e) => {
-        console.log(i)
-    })
-}
+        console.log(`${e.target.parentElement.rowIndex}, ${e.target.cellIndex}`)
+    });
+};
 
 // functions for gameplay
 
-function colorChange(event) {
-    let column = event.target.cellIndex;
+function colorChange(e) {
+    let column = e.target.cellIndex;
     let row = [];
     for (let i = 5; i > -1; i--) {
         if ($gridRow[i].children[column].style.backgroundColor == 'white') {
@@ -82,23 +82,39 @@ function colorChange(event) {
     }
 }
 Array.prototype.forEach.call($gridCol, (cell) => {
-    cell.addEventListener('click', changeColor);
+    cell.addEventListener('click', colorChange);
     cell.style.backgroundColor = 'white';
 })
 function colorCheck(a, b, c, d){
     return (a === b && a ===c && a === d && a !== 'white' && a !== undefined);
 }
 function verticalWin() {
-
+    for (let col = 0; col < 7; col++){
+        for (let row =0; row < 3; row++){
+            if (colorCheck($gridRow[row].children[col].style.backgroundColor,$gridRow[row+1].children[col].style.backgroundColor,$gridRow[row+2].children[col].style.backgroundColor,$gridRow[row+3].children[col].style.backgroundColor)){
+                return true;
+            };
+        }
+    }
 }
 
 function horizontalWin() {
-
+    for (let row = 0; row < $gridRow.length; row++) {
+        for (let col = 0; col < 4; col++){
+            if (colorCheck($gridRow[row].children[col].style.backgroundColor,tableRow[row].children[col+1].style.backgroundColor, tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
+                return true;
+            }
+        }
+    }
 }
 
 
 function diagonalWin() {
-
+    for (let col = 0; col < 4; col++){
+        for (let row = 0; row < 3; row++){
+            if (colorCheck($gridRow[row].children[col].style.backgroundColor, $gridRow[row+1].children[col+1].style.backgroundColor, $gridRow[row+2].children[col+2].style.backgroundColor, $gridRow[row+3].children[col+3].style.backgroundColor,))
+        }
+    }
 }
 
 function diagonalWinTwo() {
