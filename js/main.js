@@ -43,14 +43,15 @@ for (i = 0; i < $gridCol.length; i++) {
 // functions for gameplay
 
 function colorChange(e) {
+    e = click();
     let column = e.target.cellIndex;
     let row = [];
     for (let i = 5; i > -1; i--) {
-        if ($gridRow[i].children[column].style.backgroundColor == 'white') {
+        if ($gridRow[i].children[column].css('background-color', 'white')) {
             row.push($gridRow[i].children[column]);
 
             if (currentPlayer === 1) {
-                row[0].style.backgroundColor = 'purple';
+                row[0].css('background-color','purple');
                 if (verticalWin() || horizontalWin() || diagonalWin() || diagonalWinTwo()) {
                     $myTurn.text(`${playerOne} wins! Well done.`);
                     $myTurn.css("color", playerOneColor);
@@ -63,7 +64,7 @@ function colorChange(e) {
                     return currentPlayer = 2;
                 }
             } else {
-                row[0].style.backgroundColor = 'orange';
+                row[0].css('background-color','orange');
                 if (verticalWin() || horizontalWin() || diagonalWin() || diagonalWinTwo()) {
                     $myTurn.text(`${playerTwo} wins! Well done.`);
                     $myTurn.css("color", playerTwoColor);
@@ -82,7 +83,7 @@ function colorChange(e) {
 }
 Array.prototype.forEach.call($gridCol, (cell) => {
     cell.addEventListener('click', colorChange);
-    cell.style.backgroundColor = 'white';
+    cell.css('background-color', 'white');
 })
 function colorCheck(cell1, cell2, cell3, cell4){
     return (cell1 === cell2 && cell1 === cell3 && cell1 === cell4 && cell1 !== 'white' && cell1 !== undefined);
@@ -91,7 +92,7 @@ function colorCheck(cell1, cell2, cell3, cell4){
 function horizontalWin() {
     for (let row = 0; row < $gridRow.length; row++) {
         for (let col = 0; col < 4; col++){
-            if (colorCheck($gridRow[row].children[col].style.backgroundColor,tableRow[row].children[col+1].style.backgroundColor, tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)){
+            if (colorCheck($gridRow[row].children[col].css('background-color'),$gridRow[row].children[col+1].css('background-color'), $gridRow[row].children[col+2].css('background-color'), $gridRow[row].children[col+3].css('background-color'))){
                 return true;
             }
         }
@@ -101,7 +102,7 @@ function horizontalWin() {
 function verticalWin() {
     for (let col = 0; col < 7; col++){
         for (let row =0; row < $gridRow.length-3; row++){
-            if (colorCheck($gridRow[row].children[col].style.backgroundColor,$gridRow[row+1].children[col].style.backgroundColor,$gridRow[row+2].children[col].style.backgroundColor,$gridRow[row+3].children[col].style.backgroundColor)){
+            if (colorCheck($gridRow[row].children[col].css('background-color'),$gridRow[row+1].children[col].css('background-color'), $gridRow[row+2].children[col].css('background-color'), $gridRow[row+3].children[col].css('background-color'))){
                 return true;
             };
         }
@@ -111,7 +112,7 @@ function verticalWin() {
 function diagonalWin() {
     for (let col = 0; col < 4; col++){
         for (let row = 0; row < $gridRow.length-3; row++){
-            if (colorCheck($gridRow[row].children[col].style.backgroundColor, $gridRow[row+1].children[col+1].style.backgroundColor, $gridRow[row+2].children[col+2].style.backgroundColor, $gridRow[row+3].children[col+3].style.backgroundColor)){
+            if (colorCheck($gridRow[row].children[col].css('background-color'), $gridRow[row+1].children[col+1].css('background-color'), $gridRow[row+2].children[col+2].css('background-color'), $gridRow[row+3].children[col+3].css('background-color'))){
                 return true;
             }
         }
@@ -121,7 +122,7 @@ function diagonalWin() {
 function diagonalWinTwo() {
     for (let col = 0; col < 4; col++){
         for (let row = 5; row > 1; row--){
-            if (colorCheck($gridRow[row].children[col].style.backgroundColor, $gridRow[row-1].children[col+1].style.backgroundColor, $gridRow[row-2].children[col+2].style.backgroundColor, $gridRow[row-3].children[col+3].style.backgroundColor)){
+            if (colorCheck($gridRow[row].children[col].css('background-color'), $gridRow[row-1].children[col+1].css('background-color'), $gridRow[row-2].children[col+2].css('background-color'), $gridRow[row-3].children[col+3].css('background-color'))) {
                 return true;
             }
         }
@@ -131,7 +132,7 @@ function diagonalWinTwo() {
 function itsATie() {
     let fullColumn = []
     for (i=0; i < $gridCol.length; i++){
-        if ($gridCol[i].style.backgroundColor !== 'white') {
+        if ($gridCol[i].css('background-color','white') = false) {
             fullColumn.push($gridCol[i]);
         }
     }
@@ -143,7 +144,7 @@ function itsATie() {
 const $resetGame = $('.reset');
 $resetGame.click(clearBoard());
 function clearBoard() {
-    $myTurn.color = 'green';
+    $myTurn.css('color','green');
 
     $slots.each(slot => {
         slot.style.backgroundColor = 'white';
@@ -153,9 +154,9 @@ function clearBoard() {
 
 $( () => {
     buildBoard();
-    
+    colorChange(click());
 });
-colorChange('click');
+    
     colorCheck();
     verticalWin();
     horizontalWin();
